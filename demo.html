@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="http://cdn.bootcss.com/jquery/3.0.0/jquery.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+	var val2tpl = function(tpl, data) {
+        return tpl.replace(/(?:\{(\w+)\})/g, function(all, $1) {
+            return data[$1];
+        });
+    }
+
+    var tpl = [
+    	'<h1 data-name="{name}">',
+    		'{title}',
+    	'</h1>'
+    ].join('');
+
+    var data = {
+    	name: 'han',
+    	title: 'Hello World!'
+    }
+
+    $(val2tpl(tpl, data)).appendTo($('body'));
+	</script>
+</body>
+</html>
